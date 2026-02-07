@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marial RV Adventure – Calculateur de prix</title>
+  <meta name="description" content="Calculateur de prix : 150 $/nuit + 3 $/km + options (propane, literie, installation) — Marial RV Adventure." />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-32.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="assets/logo-64.png" alt="Logo Marial RV Adventure" />
+          <div>
+            <strong>Marial RV Adventure</strong>
+            <span>Location de roulottes • Réservation en ligne</span>
+          </div>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
+
+        <nav id="nav">
+          <a href="index.html" data-page="index.html">Accueil</a>
+          <a href="vehicules.html" data-page="vehicules.html">Véhicules</a>
+          <a href="reservation.html" data-page="reservation.html">Réservation</a>
+          
+          <a href="calculateur.html" data-page="calculateur.html">Prix</a>
+<a href="avis.html" data-page="avis.html">Avis</a>
+          <a href="faq.html" data-page="faq.html">FAQ</a>
+          <a href="contact.html" data-page="contact.html">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn primary" href="reservation.html">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Calculateur de prix</h1>
+      <p>
+        Tarif simple : <b>150&nbsp;$ / nuit</b> + <b>livraison 3&nbsp;$ / km</b> (depuis <b>319 Massenet, Saint‑Jean‑sur‑Richelieu, QC J3B 8V9</b>) + options.
+      </p>
+      <div class="badges">
+        <span class="badge">150 $ / nuit</span>
+        <span class="badge">3 $ / km</span>
+        <span class="badge">Options : 40 $</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="rv-two">
+        <div class="card">
+          <div class="section-title" style="margin:0">
+            <h2 style="font-size:18px">Entrer vos informations</h2>
+            <p class="hint">Astuce : calculez la distance (aller) avec Google Maps à partir de <b>319 Massenet J3B 8V9</b>.</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:end">
+            <div>
+</div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div class="section-title" style="margin:0">
+              <h2 style="font-size:18px">Options (40 $ chacune)</h2>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:8px">
+              <label style="display:flex; align-items:center; gap:10px; margin:0">
+                <input class="opt" type="checkbox" data-price="40" id="optPropane" style="width:auto; margin:0" />
+                Propane (40 $)
+              </label>
+              <label style="display:flex; align-items:center; gap:10px; margin:0">
+                <input class="opt" type="checkbox" data-price="40" id="optLiterie" style="width:auto; margin:0" />
+                Literie (40 $)
+              </label>
+              <label style="display:flex; align-items:center; gap:10px; margin:0">
+                <input class="opt" type="checkbox" data-price="40" id="optInstall" style="width:auto; margin:0" />
+                Installation (40 $)
+              </label>
+            </div>
+
+            <div class="hint" style="margin-top:10px">Taxes non incluses (si applicable).</div>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
+            <button class="btn primary" id="copyQuote" type="button">Copier le résumé</button>
+            <button class="btn" id="resetCalc" type="button">Réinitialiser</button>
+            <a class="btn" href="reservation.html">Réserver</a>
+            <a class="btn" href="contact.html">Poser une question</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title" style="margin:0">
+            <h2 style="font-size:18px">Total</h2>
+            <p class="hint">Mise à jour automatique.</p>
+          </div>
+
+          <div class="kv" style="margin-top:10px">
+            <b>Prix nuits</b>
+            <span><span id="nightsLine">1</span> × 150 $</span>
+            <span style="font-weight:800; color:var(--text)" id="nightsSubtotal">150 $</span>
+          </div>
+
+          <div class="kv" style="margin-top:10px">
+            <b>Livraison</b>
+            <span id="deliveryLine">0 km × 3 $</span>
+            <span style="font-weight:800; color:var(--text)" id="deliverySubtotal">0 $</span>
+          </div>
+
+          <div class="kv" style="margin-top:10px">
+            <b>Options</b>
+            <span id="optionsLine">—</span>
+            <span style="font-weight:800; color:var(--text)" id="optionsSubtotal">0 $</span>
+          </div>
+
+          <div class="kv" style="margin-top:10px; border-color: rgba(255,255,255,.14)">
+            <b>Total (avant taxes)</b>
+            <span class="hint">Montant estimé</span>
+            <span style="font-weight:900; font-size:22px; color:var(--text)" id="grandTotal">150 $</span>
+          </div>
+
+          <div class="hint" style="margin-top:10px">
+            Adresse de départ : <b>319 Massenet, Saint‑Jean‑sur‑Richelieu, QC J3B 8V9</b>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <a class="fab" href="reservation.html">Réserver<br/><small>Google</small></a>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div style="font-weight:650; color:var(--text)">Marial RV Adventure</div>
+        <div class="fine">© <span id="year"></span> • Site vitrine • Réservation en ligne</div>
+      </div>
+
+      <div class="fine">
+        <div><a href="index.html">Retour à l’accueil</a></div>
+        <div style="margin-top:6px; opacity:.9">
+          Photo de fond : vastateparksstaff (CC BY 2.0) • Voir détails dans README.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
